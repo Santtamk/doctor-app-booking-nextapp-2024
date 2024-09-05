@@ -39,7 +39,7 @@ const Header = () => {
           ))}
         </ul>
       </div>
-      <Button>Get Started</Button>
+      <Button className="bg-indigo-600">Get Started</Button>
     </div>
   );
 };
