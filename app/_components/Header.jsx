@@ -31,7 +31,7 @@ const Header = () => {
             <Link href={item.path}>
               <li
                 key={index}
-                className="hover:text-indigo-700 cursor-pointer hover:scale-105 transition-all ease-in-out text-lg"
+                className="hover:text-primary cursor-pointer hover:scale-105 transition-all ease-in-out text-lg"
               >
                 {item.name}
               </li>
@@ -39,7 +39,7 @@ const Header = () => {
           ))}
         </ul>
       </div>
-      <Button className="bg-indigo-600">Get Started</Button>
+      <Button className="bg-primary">Get Started</Button>
     </div>
   );
 };

@@ -10,26 +10,25 @@ const Hero = () => {
           <div className="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full">
             <Image
               alt=""
-              src="/doctors.jpg"
+              src="/doctors.webp"
               width={800}
               height={800}
-              className="absolute inset-0 h-full w-full object-cover rounded-3xl"
+              className="absolute inset-0 h-full w-full object-cover object-top rounded-3xl"
             />
           </div>
 
           <div className="lg:py-24">
             <h2 className="text-3xl font-bold sm:text-4xl">
               Find & Book
-              <span className="text-primary"> Appointment</span>
-              with your favorite
-              <span className="text-primary"> Doctors</span>
+              <span className="text-primary"> Appointment </span>
+              with Top
+              <span className="text-primary"> Doctors </span>
+              Near You
             </h2>
 
             <p className="mt-4 text-gray-600">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut qui
-              hic atque tenetur quis eius quos ea neque sunt, accusantium soluta
-              minus veniam tempora deserunt? Molestiae eius quidem quam
-              repellat.
+              "Your health matters. Connect with the best doctors, book
+              appointments instantly, and get the care you deserve."
             </p>
 
             <Button className="bg-primary mt-10">Explore Now</Button>
