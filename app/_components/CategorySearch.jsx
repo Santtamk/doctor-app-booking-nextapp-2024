@@ -21,7 +21,7 @@ const CategorySearch = () => {
     });
   };
   return (
-    <div className="mb-10 items-center flex flex-col gap-2">
+    <div className="mb-10 items-center px-5 flex flex-col gap-2">
       <h2 className="font-bold text-4xl tracking-wide">
         Search
         <span className="text-primary"> Doctors </span>
@@ -38,17 +38,25 @@ const CategorySearch = () => {
       </div>
 
       {/* displaying category list */}
-      {categoryList.map((item, index) => (
-        <div>
-          <Image
-            src={item.attributes.Icon.data[0].attributes.url}
-            alt="icon"
-            width={40}
-            height={40}
-          />
-          <label>{item?.attributes?.Name}</label>
-        </div>
-      ))}
+      <div className="grid grid-cols-3 mt-5 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        {categoryList.map(
+          (item, index) =>
+            index < 6 && (
+              <div
+                key={index}
+                className="flex flex-col text-center items-center gap-2 p-5 bg-primary-50 hover:scale-110 transition-all ease-in-out bg-teal-50"
+              >
+                <Image
+                  src={item.attributes.Icon.data[0].attributes.url}
+                  alt="icon"
+                  width={40}
+                  height={40}
+                />
+                <label className="text-primary">{item?.attributes?.Name}</label>
+              </div>
+            )
+        )}
+      </div>
     </div>
   );
 };
