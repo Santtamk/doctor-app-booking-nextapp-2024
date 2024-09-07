@@ -16,7 +16,6 @@ const CategorySearch = () => {
 
   const getCategoryList = () => {
     GlobalApi.getCategory().then((res) => {
-      console.log(res.data.data);
       setCategoryList(res.data.data);
     });
   };
@@ -44,7 +43,7 @@ const CategorySearch = () => {
             index < 6 && (
               <div
                 key={index}
-                className="flex flex-col text-center items-center gap-2 p-5 bg-primary-50 hover:scale-110 transition-all ease-in-out bg-teal-50"
+                className="flex flex-col text-center items-center gap-2 p-5 bg-primary-50 hover:scale-110 transition-all ease-in-out bg-teal-50 cursor-pointer hover:shadow-lg"
               >
                 <Image
                   src={item.attributes.Icon.data[0].attributes.url}
