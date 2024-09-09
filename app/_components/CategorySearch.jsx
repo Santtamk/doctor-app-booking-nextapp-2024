@@ -6,6 +6,7 @@ import { Search } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import GlobalApi from "../_utils/GlobalApi";
 import Image from "next/image";
+import Link from "next/link";
 
 const CategorySearch = () => {
   const [categoryList, setCategoryList] = useState([]);
@@ -42,7 +43,8 @@ const CategorySearch = () => {
           ? categoryList.map(
               (item, index) =>
                 index < 6 && (
-                  <div
+                  <Link
+                    href={"/search/" + item?.attributes?.Name}
                     key={index}
                     className="flex flex-col text-center items-center gap-2 p-5 bg-primary-50 hover:scale-110 transition-all ease-in-out bg-teal-50 cursor-pointer hover:shadow-lg"
                   >
@@ -55,7 +57,7 @@ const CategorySearch = () => {
                     <label className="text-primary">
                       {item?.attributes?.Name}
                     </label>
-                  </div>
+                  </Link>
                 )
             )
           : [1, 2, 3, 4, 5, 6].map((item, index) => (
