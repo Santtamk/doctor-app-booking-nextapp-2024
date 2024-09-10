@@ -2,10 +2,10 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import React from "react";
 
-const DoctorList = ({ doctorList }) => {
+const DoctorList = ({ doctorList, heading = "Popular Doctors" }) => {
   return (
     <div className="mb-10 px-8">
-      <h2 className="font-bold text-xl">Popular Doctors</h2>
+      <h2 className="font-bold text-xl">{heading}</h2>
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 mt-5">
         {doctorList.length > 0
           ? doctorList.map((doctor, index) => (
@@ -21,9 +21,18 @@ const DoctorList = ({ doctorList }) => {
                   className="h-[200px] w-full object-cover rounded-lg object-top"
                 />
                 <div className="mt-3 items-baseline flex flex-col gap-2">
-                  <h2 className="text-[10px] font-semibold bg-teal-50 p-1 rounded-full px-2 text-primary">
-                    {doctor.attributes?.category.data.attributes.Name}
-                  </h2>
+                  <div className="flex gap-2">
+                    {doctor.attributes?.categories?.data?.map(
+                      (category, index) => (
+                        <h2
+                          className="text-[10px] font-semibold bg-teal-50 p-1 rounded-full px-2 text-primary"
+                          key={index}
+                        >
+                          {category.attributes.Name}
+                        </h2>
+                      )
+                    )}
+                  </div>
                   <h2 className="font-bold">{doctor.attributes?.Name}</h2>
                   <h2 className="text-primary text-sm">
                     {doctor.attributes?.Years_of_Experience}
