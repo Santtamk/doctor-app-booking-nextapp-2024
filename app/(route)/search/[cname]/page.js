@@ -22,6 +22,6 @@ const Search = ({ params }) => {
       <DoctorList heading={params.cname} doctorList={doctorList} />
     </div>
   );
-};
+}; 
 
 export default Search;
