@@ -7,7 +7,6 @@ const Search = ({ params }) => {
   const [doctorList, setDoctorList] = useState([]);
 
   useEffect(() => {
-    // console.log(params.cname);
     getDoctors();
   }, []);
 
@@ -22,6 +21,6 @@ const Search = ({ params }) => {
       <DoctorList heading={params.cname} doctorList={doctorList} />
     </div>
   );
-}; 
+};
 
 export default Search;
