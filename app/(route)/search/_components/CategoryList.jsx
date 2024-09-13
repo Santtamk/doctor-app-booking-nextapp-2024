@@ -24,14 +24,14 @@ const CategoryList = () => {
 
   useEffect(() => {
     getCategoryList();
-    console.log("params:", params);
-    console.log("category", category);
+    // console.log("params:", params);
+    // console.log("category", category);
   }, []);
 
   const getCategoryList = () => {
     GlobalApi.getCategory().then((res) => {
       setCategoryList(res.data.data);
-      console.log("res.data.data for category list:", res.data.data);
+      // console.log("res.data.data for category list:", res.data.data);
     });
   };
   return (

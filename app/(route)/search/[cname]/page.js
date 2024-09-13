@@ -7,7 +7,7 @@ const Search = ({ params }) => {
   const [doctorList, setDoctorList] = useState([]);
 
   useEffect(() => {
-    console.log(params.cname);
+    // console.log(params.cname);
     getDoctors();
   }, []);
 

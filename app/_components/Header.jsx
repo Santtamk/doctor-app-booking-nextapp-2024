@@ -36,7 +36,7 @@ const Header = () => {
   const { user } = useKindeBrowserClient();
 
   useEffect(() => {
-    console.log(user);
+    // console.log(user);
   }, [user]);
 
   return (
@@ -46,7 +46,7 @@ const Header = () => {
 
         <ul className="md:flex gap-8 hidden">
           {Menu.map((item, index) => (
-            <Link href={item.path}>
+            <Link href={item.path} key={index}>
               <li
                 key={index}
                 className="hover:text-primary cursor-pointer hover:scale-105 transition-all ease-in-out text-lg"
