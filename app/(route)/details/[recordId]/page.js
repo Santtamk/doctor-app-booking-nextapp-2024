@@ -24,8 +24,8 @@ const Details = ({ params }) => {
         <div className="col-span-3">
           {doctor && <DoctorDetail doctor={doctor} />}
         </div>
-        {/* Doctor Suggestion */}
-        <div></div>
+        {/* Doctor Suggestion can be added here*/}
+        {/* <div></div> */}
       </div>
     </div>
   );

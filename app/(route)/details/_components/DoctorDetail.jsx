@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { GraduationCap, MapPin } from "lucide-react";
 import Image from "next/image";
 import React from "react";
+import BookAppointment from "./BookAppointment";
 
 const DoctorDetail = ({ doctor }) => {
   const socialMediaList = [
@@ -65,9 +66,8 @@ const DoctorDetail = ({ doctor }) => {
               <Image src={item.icon} key={index} width={30} height={30} />
             ))}
           </div>
-          <Button className="mt-3 rounded-full bg-primary">
-            Book Appointment
-          </Button>
+         
+          <BookAppointment />
         </div>
         {/* Doctor About */}
       </div>
