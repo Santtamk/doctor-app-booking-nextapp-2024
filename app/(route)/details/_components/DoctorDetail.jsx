@@ -66,8 +66,8 @@ const DoctorDetail = ({ doctor }) => {
               <Image src={item.icon} key={index} width={30} height={30} />
             ))}
           </div>
-         
-          <BookAppointment />
+
+          <BookAppointment doctor={doctor} />
         </div>
         {/* Doctor About */}
       </div>

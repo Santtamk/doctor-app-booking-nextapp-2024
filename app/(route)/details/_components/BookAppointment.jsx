@@ -13,11 +13,17 @@ import {
 import { Calendar } from "@/components/ui/calendar";
 import { Button } from "@/components/ui/button";
 import { CalendarDays, Clock } from "lucide-react";
+import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+import { toast } from "sonner";
+import GlobalApi from "@/app/_utils/GlobalApi";
+import { Textarea } from "@/components/ui/textarea";
 
-const BookAppointment = () => {
+const BookAppointment = ({ doctor }) => {
   const [date, setDate] = useState(new Date());
   const [timeSlot, setTimeSlot] = useState([]);
   const [selectedTimeSlot, setSelectedTimeSlot] = useState();
+  const [note, setNote] = useState();
+  const { user } = useKindeBrowserClient();
 
   useEffect(() => {
     getTime();
@@ -44,7 +50,26 @@ const BookAppointment = () => {
 
     setTimeSlot(timeList);
   };
-  //   console.log(timeSlot);
+
+  const saveBooking = () => {
+    const data = {
+      data: {
+        UserName: user.given_name + "" + user.family_name,
+        Email: user.email,
+        Date: date,
+        Time: selectedTimeSlot,
+        doctor: doctor.id,
+        Note: note,
+      },
+    };
+
+    GlobalApi.bookAppointment(data).then((resp) => {
+      console.log(resp);
+      if (resp) {
+        toast("Booking conformation sent to your Email.");
+      }
+    });
+  };
 
   const isPastDAy = (day) => {
     return day < new Date();
@@ -99,6 +124,11 @@ const BookAppointment = () => {
                   </div>
                 </div>
               </div>
+              <Textarea
+                className="mt-3"
+                placeholder="Something you would like to add.."
+                onChange={(e) => setNote(e.target.value)}
+              />
             </div>
           </DialogDescription>
         </DialogHeader>
@@ -117,6 +147,7 @@ const BookAppointment = () => {
                 variant="secondary"
                 className="bg-primary"
                 disabled={!(date && selectedTimeSlot)}
+                onClick={() => saveBooking()}
               >
                 Submit
               </Button>
