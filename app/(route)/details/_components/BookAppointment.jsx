@@ -66,6 +66,9 @@ const BookAppointment = ({ doctor }) => {
     GlobalApi.bookAppointment(data).then((resp) => {
       console.log(resp);
       if (resp) {
+        GlobalApi.sendEmail(data).then((res) => {
+          console.log(res);
+        });
         toast("Booking conformation sent to your Email.");
       }
     });
