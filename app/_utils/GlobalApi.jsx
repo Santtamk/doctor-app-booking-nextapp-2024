@@ -22,7 +22,7 @@ const getDoctorById = (id) => axiosClient.get("/doctors/" + id + "?populate=*");
 
 const bookAppointment = (data) => axiosClient.post("/appointments", data);
 
-const sendEmail = (data) => axios.post("/api/email", data);
+const sendEmail = (data) => axios.post("/api/sendEmail", data);
 
 export default {
   getCategory,

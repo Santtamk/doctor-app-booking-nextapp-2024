@@ -54,7 +54,8 @@ const BookAppointment = ({ doctor }) => {
   const saveBooking = () => {
     const data = {
       data: {
-        UserName: user.given_name + "" + user.family_name,
+        // UserName: user.given_name + " " + user.family_name,
+        UserName: (user?.given_name || "") + " " + (user?.family_name || ""),
         Email: user.email,
         Date: date,
         Time: selectedTimeSlot,
@@ -66,8 +67,8 @@ const BookAppointment = ({ doctor }) => {
     GlobalApi.bookAppointment(data).then((resp) => {
       console.log(resp);
       if (resp) {
-        GlobalApi.sendEmail(data).then((res) => {
-          console.log(res);
+        GlobalApi.sendEmail(data).then((resp) => {
+          console.log(resp);
         });
         toast("Booking conformation sent to your Email.");
       }

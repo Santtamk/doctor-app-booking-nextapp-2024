@@ -35,20 +35,6 @@ const EmailTemplate = ({ userFirstname = "Test User" }) => (
         <Text style={paragraph}>
           This is a test email as a conformation for your appointment booking.
         </Text>
-        {/* <Section style={btnContainer}>
-          <Button style={button} href="https://getkoala.com">
-            Get started
-          </Button>
-        </Section> */}
-        {/* <Text style={paragraph}>
-          Best,
-          <br />
-          The Koala team
-        </Text> */}
-        <Hr style={hr} />
-        {/* <Text style={footer}>
-          470 Noor Ave STE B #1148, South San Francisco, CA 94080
-        </Text> */}
       </Container>
     </Body>
   </Html>
