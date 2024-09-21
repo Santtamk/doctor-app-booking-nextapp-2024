@@ -70,12 +70,15 @@ const Header = () => {
           </PopoverTrigger>
           <PopoverContent className="w-44">
             <ul className="flex flex-col gap-2">
-              <li className="cursor-pointer hover:bg-teal-100 p-2 rounded-md">
+              {/* <li className="cursor-pointer hover:bg-teal-100 p-2 rounded-md">
                 Profile
-              </li>
-              <li className="cursor-pointer hover:bg-teal-100 p-2 rounded-md">
+              </li> */}
+              <Link
+                href={"/my-booking"}
+                className="cursor-pointer hover:bg-teal-100 p-2 rounded-md"
+              >
                 My Booking
-              </li>
+              </Link>
               <li className="cursor-pointer hover:bg-teal-100 p-2 rounded-md">
                 <LogoutLink>Logout</LogoutLink>
               </li>

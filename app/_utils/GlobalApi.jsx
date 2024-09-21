@@ -24,6 +24,13 @@ const bookAppointment = (data) => axiosClient.post("/appointments", data);
 
 const sendEmail = (data) => axios.post("/api/sendEmail", data);
 
+const getUserBookingList = (userEmail) =>
+  axiosClient.get(
+    "/appointments?filters[Email][$eq]=" +
+      userEmail +
+      "&populate[doctor][populate][image][populate][0]=url&populate=*"
+  );
+
 export default {
   getCategory,
   getDoctorList,
@@ -31,4 +38,5 @@ export default {
   getDoctorById,
   bookAppointment,
   sendEmail,
+  getUserBookingList,
 };

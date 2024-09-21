@@ -54,7 +54,6 @@ const BookAppointment = ({ doctor }) => {
   const saveBooking = () => {
     const data = {
       data: {
-        // UserName: user.given_name + " " + user.family_name,
         UserName: (user?.given_name || "") + " " + (user?.family_name || ""),
         Email: user.email,
         Date: date,
