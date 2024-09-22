@@ -13,7 +13,7 @@ const MyBooking = () => {
     user && getUserBookingList();
   }, [user]);
   const getUserBookingList = () => {
-    GlobalApi.getUserBookingList(user?.email).then((resp) => {
+    GlobalApi.getUserBookingList(user.email).then((resp) => {
       console.log(resp.data.data);
       setBookingList(resp.data.data);
     });
@@ -24,13 +24,13 @@ const MyBooking = () => {
    * @param {} type
    * @returns
    */
-  const filterUserBoking = (type) => {
+  const filterUserBooking = (type) => {
     const result = bookingList.filter((item) =>
       type === "upcoming"
         ? new Date(item.attributes.Date) >= new Date()
-        : new Date(item.attributes.Date) >= new Date()
+        : new Date(item.attributes.Date) <= new Date()
     );
-    console.log("result:", result);
+    console.log("filtered result:", result);
     return result;
   };
   console.log("bookingList on page.jsx:", bookingList);
@@ -45,10 +45,10 @@ const MyBooking = () => {
           <TabsTrigger value="expired">Expired</TabsTrigger>
         </TabsList>
         <TabsContent value="upcoming">
-          <BookingList bookingList={filterUserBoking("upcoming")} />
+          <BookingList bookingList={filterUserBooking("upcoming")} />
         </TabsContent>
         <TabsContent value="expired">
-          <BookingList bookingList={filterUserBoking("upcoming")} />
+          <BookingList bookingList={filterUserBooking("upcoming")} />
         </TabsContent>
       </Tabs>
     </div>

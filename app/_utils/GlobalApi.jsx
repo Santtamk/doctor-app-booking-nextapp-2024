@@ -28,7 +28,7 @@ const getUserBookingList = (userEmail) =>
   axiosClient.get(
     "/appointments?filters[Email][$eq]=" +
       userEmail +
-      "&populate[doctor][populate][image][populate][0]=url&populate=*"
+      "&populate[doctor][populate]=Image"
   );
 
 export default {

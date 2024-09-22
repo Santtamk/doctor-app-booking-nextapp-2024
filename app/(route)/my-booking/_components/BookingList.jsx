@@ -8,7 +8,7 @@ const BookingList = ({ bookingList }) => {
         bookingList.map((item, index) => (
           <div key={index}>
             <Image
-              src={item.attributes.doctor.data?.[0]?.attributes.url}
+              src={item.attributes.doctor.data.attributes.Image?.data?.[0]?.attributes?.url}
               className=""
               width={100}
               height={100}
