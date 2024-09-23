@@ -137,24 +137,24 @@ const BookAppointment = ({ doctor }) => {
         </DialogHeader>
         <DialogFooter className="sm:justify-end">
           <DialogClose asChild>
-            <>
-              <Button
-                type="button"
-                variant="outline"
-                className="text-red-500 border-red-500"
-              >
-                Close
-              </Button>
-              <Button
-                type="button"
-                variant="secondary"
-                className="bg-primary"
-                disabled={!(date && selectedTimeSlot)}
-                onClick={() => saveBooking()}
-              >
-                Submit
-              </Button>
-            </>
+            <Button
+              type="button"
+              variant="outline"
+              className="text-red-500 border-red-500"
+            >
+              Close
+            </Button>
+          </DialogClose>
+          <DialogClose asChild>
+            <Button
+              type="button"
+              variant="secondary"
+              className="bg-primary"
+              disabled={!(date && selectedTimeSlot)}
+              onClick={() => saveBooking()}
+            >
+              Submit
+            </Button>
           </DialogClose>
         </DialogFooter>
       </DialogContent>

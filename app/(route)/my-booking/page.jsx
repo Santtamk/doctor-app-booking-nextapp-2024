@@ -12,6 +12,7 @@ const MyBooking = () => {
   useEffect(() => {
     user && getUserBookingList();
   }, [user]);
+
   const getUserBookingList = () => {
     GlobalApi.getUserBookingList(user.email).then((resp) => {
       console.log(resp.data.data);
@@ -45,10 +46,18 @@ const MyBooking = () => {
           <TabsTrigger value="expired">Expired</TabsTrigger>
         </TabsList>
         <TabsContent value="upcoming">
-          <BookingList bookingList={filterUserBooking("upcoming")} />
+          <BookingList
+            bookingLists={filterUserBooking("upcoming")}
+            updatedRecord={() => getUserBookingList()}
+            expired={false}
+          />
         </TabsContent>
         <TabsContent value="expired">
-          <BookingList bookingList={filterUserBooking("upcoming")} />
+          <BookingList
+            bookingLists={filterUserBooking("expired")}
+            updatedRecord={() => getUserBookingList()}
+            expired={true}
+          />
         </TabsContent>
       </Tabs>
     </div>
