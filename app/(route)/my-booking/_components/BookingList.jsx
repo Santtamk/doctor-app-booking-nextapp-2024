@@ -7,18 +7,22 @@ import GlobalApi from "@/app/_utils/GlobalApi";
 import { toast } from "sonner";
 
 const BookingList = ({ bookingLists, expired, updatedRecord }) => {
- 
   const onDeleteBooking = (item) => {
-    console.log("resp:", item);
-    GlobalApi.deleteBooking(item.id).then((resp) => {
-      if (resp) {
-        toast("Appointment booking cancelled!");
-        updatedRecord();
-      }
-    });
+    GlobalApi.deleteBooking(item.id)
+      .then((resp) => {
+        if (resp) {
+          toast("Appointment booking cancelled!");
+          updatedRecord(); // Call the function to refresh records
+        } else {
+          toast("Unexpected response, please try again.");
+        }
+      })
+      .catch((err) => {
+        // Log detailed error information
+        toast("Failed to cancel appointment. Please try again.");
+      });
   };
 
-  console.log("bookingLists:", bookingLists);
 
   return (
     <div>

@@ -31,7 +31,7 @@ const getUserBookingList = (userEmail) =>
       "&populate[doctor][populate]=Image"
   );
 
-const deleteBooking = (id) => axiosClient.delete("/appointments/" + id);
+const deleteBooking = (id) => axiosClient.delete(`/appointments/${id}`);
 
 export default {
   getCategory,

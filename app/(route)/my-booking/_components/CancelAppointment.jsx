@@ -31,7 +31,7 @@ const CancelAppointment = ({ onContinueClick }) => {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={() => onContinueClick}>
+            <AlertDialogAction onClick={onContinueClick}>
               Continue
             </AlertDialogAction>
           </AlertDialogFooter>

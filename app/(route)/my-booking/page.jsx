@@ -52,7 +52,7 @@ const MyBooking = () => {
             expired={false}
           />
         </TabsContent>
-        <TabsContent value="expired">
+        <TabsContent value="expired"> 
           <BookingList
             bookingLists={filterUserBooking("expired")}
             updatedRecord={() => getUserBookingList()}
